@@ -16,7 +16,18 @@ h1{
     font-size: 20px;
     font-weight: normal;
 }
+h2{
+    font-size: 18px;
+    font-weight: normal;
+}
 
+a{
+    color:#000;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
 
 #contenedor{
     width: 1000px;
@@ -70,15 +81,29 @@ h1{
     margin-top: 15px;
 }
 #principal #contenido {
-    width: 80%;
+    width: 768px;
     height: auto;
     float:left;
+    margin:30px 0 30px 30px; 
+    background-image: url("../images/bk.png");
+    background-repeat: repeat; 
+}
+#principal #contenido #logo-inst{
+    margin: 25px 0 0 25px;
+    float: left;
+}
+
+#principal #contenido #datos-inst{
+    margin: 25px 25px 25px 15px;
+    float: left;
+    width: 600px;
 }
 #principal #publicidades {
     width: 20%;
     height: auto; 
     background-color: red;
     float:left;
+    margin: 30px 0 30px 0;
 }
 
 #principal #contenido-index{
