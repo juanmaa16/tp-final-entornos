@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <script language="JavaScript">
+            function muestra_oculta(id){
+                if (document.getElementById){ //se obtiene el id
+                    var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
+                    el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+                }
+            }
+            window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+                muestra_oculta('sociales_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('salud_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('nyce_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('humanidades_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('economicas_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('ingenieria_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('idiomas_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('hyt_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('ayd_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('arte_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+                muestra_oculta('gastronomia_lista');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+            }
+        </script>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="header">
+                <a href="index.html"><img id="logo" src="images/logo.png"/></a>
+                <div id="buscador">
+                    <form action="" method="get">
+                        <input type="text" placeholder="Buscar..."/>
+                    </form>
+                </div>
+            </div>
+            <div id="principal">
+                <div id="menu">
+                    <ul id="css3menu1" class="topmenu">
+                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
+                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
+                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
+                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
+                        <li class="toplast"><a href="contacto.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
+                    </ul>
+                </div>
+                <div id="contenido">
+                    <ul id="areas-interes">
+                        <li><a onclick="muestra_oculta('ayd_lista')" title="">Arquitectura y diseño</a></li>
+                        <ul id="ayd_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('arte_lista')" title="">Arte</a></li>
+                        <ul id="arte_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('economicas_lista')" title="">Económicas</a></li>
+                        <ul id="economicas_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('gastronomia_lista')" title="">Gastronomía</a></li>
+                        <ul id="gastronomia_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('hyt_lista')" title="">Hotelería y turismo</a></li>
+                        <ul id="hyt_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('humanidades_lista')" title="">Humanidades</a></li>
+                        <ul id="humanidades_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('idiomas_lista')" title="">Idiomas</a></li>
+                        <ul id="idiomas_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('ingenieria_lista')" title="">Ingeniería</a></li>
+                        <ul id="ingenieria_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('nyce_lista')" title="">Naturales y Ciencias Exactas</a></li>
+                        <ul id="nyce_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('salud_lista')" title="">Salud</a></li>
+                        <ul id="salud_lista">
+                            <li>Carrera de prueba</li>
+                        </ul>
+                        <li><a onclick="muestra_oculta('sociales_lista')" title="">Sociales</a></li>
+                        <ul id="sociales_lista">
+                            <li>asdas</li>
+                        </ul>
+
+
+
+                    </ul>
+
+                </div>
+                <div id="publicidades">
+                    gfhfjfj
+                </div>
+
+            </div>
+            <div id="footer">
+            </div>
+        </div>
+    </body>
+</html>

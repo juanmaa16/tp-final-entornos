@@ -124,3 +124,17 @@ a:hover{
     padding-right: 20px;
     padding-top: 5px;
 }
+
+#principal #contenido ul#areas-interes{
+    list-style-image: url('../images/mas_azul.png');
+}
+
+#principal #contenido ul#areas-interes li{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#principal #contenido #areas-interes ul{
+    list-style: none;
+    list-style-type: disc;   
+}
