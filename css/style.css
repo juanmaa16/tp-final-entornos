@@ -23,6 +23,11 @@ h2{
 p{
     font-size: 15px;
 }
+h3{
+    font-size: 18px;
+    font-weight:bold;
+	color:#999;
+}
 
 a{
     color:#000;
@@ -140,4 +145,25 @@ a:hover{
 #principal #contenido #areas-interes ul{
     list-style: none;
     list-style-type: disc;   
+}
+#principal #cuerpo {
+    width: 700px;
+    height: auto;
+	margin: 0 0 25px 25px;
+    float: left;
+}
+#principal #contenido #logo-list{
+    width: 35px;
+    height: 35px;
+	float:left;
+}
+#principal #contenido #list-carr{
+	float: left;
+}
+
+#principal #contenido ul#lista-carr li{
+	clear:both;
+	margin-bottom: 10px;
+	overflow:hidden;
+	list-style-type: none;
 }
