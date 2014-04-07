@@ -26,7 +26,16 @@ p{
 h3{
     font-size: 18px;
     font-weight:bold;
-	color:#999;
+    color:#999;
+}
+
+label{
+    font-size:13px;
+    margin: 2px;
+}
+
+textarea {
+    resize: none;
 }
 
 a{
@@ -109,9 +118,9 @@ a:hover{
 #principal #publicidades {
     width: 20%;
     height: auto; 
-    background-color: red;
     float:left;
     margin: 30px 0 30px 0;
+    text-align: center;
 }
 
 #principal #contenido-index{
@@ -149,21 +158,82 @@ a:hover{
 #principal #cuerpo {
     width: 700px;
     height: auto;
-	margin: 0 0 25px 25px;
+    margin: 0 0 25px 25px;
     float: left;
 }
 #principal #contenido #logo-list{
     width: 35px;
     height: 35px;
-	float:left;
+    float:left;
 }
 #principal #contenido #list-carr{
-	float: left;
+    float: left;
 }
 
 #principal #contenido ul#lista-carr li{
-	clear:both;
-	margin-bottom: 10px;
-	overflow:hidden;
-	list-style-type: none;
+    clear:both;
+    margin-bottom: 10px;
+    overflow:hidden;
+    list-style-type: none;
 }
+
+/*FORMULARIOS: Componentes comunes*/ 
+.textbox { 
+    border: 1px solid #c4c4c4; 
+    height: 15px; 
+    width: 190px; 
+    font-size: 13px; 
+    padding: 4px 4px 4px 4px; 
+    border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+} 
+
+.textbox:focus { 
+    outline: none; 
+    border: 1px solid #7bc1f7; 
+    box-shadow: 0px 0px 8px #0088b2; 
+    -moz-box-shadow: 0px 0px 8px #0088b2; 
+    -webkit-box-shadow: 0px 0px 8px #0088b2; 
+}
+
+.boton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #0088b2;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #0088b2;
+    box-shadow:inset 0px 1px 0px 0px #0088b2;
+    background-color:#0088b2;
+    -webkit-border-top-left-radius:6px;
+    -moz-border-radius-topleft:6px;
+    border-top-left-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    -moz-border-radius-topright:6px;
+    border-top-right-radius:6px;
+    -webkit-border-bottom-right-radius:6px;
+    -moz-border-radius-bottomright:6px;
+    border-bottom-right-radius:6px;
+    -webkit-border-bottom-left-radius:6px;
+    -moz-border-radius-bottomleft:6px;
+    border-bottom-left-radius:6px;
+    text-indent:0;
+    border:1px solid #0088b2;
+    display:inline-block;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+    height:35px;
+    line-height:50px;
+    width:100px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #260d26;
+    margin-top: 5px;
+}
+.boton:active {
+    position:relative;
+    top:1px;
+}
+/*FIN FORMULARIOS: Componentes comunes*/ 
