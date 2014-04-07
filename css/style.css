@@ -165,9 +165,7 @@ a:hover{
     width: 35px;
     height: 35px;
     float:left;
-}
-#principal #contenido #list-carr{
-    float: left;
+    margin-right: 5px;
 }
 
 #principal #contenido ul#lista-carr li{
