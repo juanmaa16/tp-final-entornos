@@ -175,6 +175,22 @@ a:hover{
     list-style-type: none;
 }
 
+#principal #contenido-admin {
+    background-image: url("../images/bk.png");
+    background-repeat: repeat;
+    width: 90%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+
 /*FORMULARIOS: Componentes comunes*/ 
 .textbox { 
     border: 1px solid #c4c4c4; 
