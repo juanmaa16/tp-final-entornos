@@ -11,6 +11,18 @@ class Institucion {
     private $email;
     private $web;
 
+    function __construct($id, $nombre, $logo, $direccion, $descripcion, $telefono, $email, $web) {
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->logo = $logo;
+        $this->direccion = $direccion;
+        $this->descripcion = $descripcion;
+        $this->telefono = $telefono;
+        $this->email = $email;
+        $this->web = $web;
+    }
+
+    
     public function getId() {
         return $this->id;
     }

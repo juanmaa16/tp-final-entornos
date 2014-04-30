@@ -31,14 +31,24 @@
                 </div>
                 <div id="contenido-admin">
                     <div id="cuerpo">
-                        <h1>PANEL DE MODIFICACIONES</h1>
-                      <ul>
-                      <br><li> <a href="institucion-modifica-inst.html">INSTITUCIÓN</a></li><br>
-                      <li> <a href="institucion-modifica-listaCarr.html">CARRERAS</a></li><br>
-                       <li> <a href="institucion-modifica-pass.html">CONTRASEÑA</a></li>
-                      </ul>  
-
-
+                        <h1>CARGA INSTITUCIÓN</h1>
+                        <form method="POST" action="institucion_abm.php?action=alta">
+                            <label>Nombre</label><br/>
+                            <input name="nombre" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Logo</label><br/>
+                            <input name="logo" type="file" class="textbox" style="width:50%;height: 25px;"/><br/>
+                            <label>Descripción</label><br/>
+                            <textarea name="descripcion" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
+                            <label>Dirección</label><br/>
+                            <input name="direccion" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Email</label><br/>
+                            <input name="email" type="text" class="textbox" style="width:50%"/><br/>
+                            <label>Telefono</label><br/>
+                            <input name="telefono" type="text" class="textbox" style="width:50%"/><br/>
+                            <label>Web</label><br/>
+                            <input name="web" type="text" class="textbox" style="width:50%"/><br/>
+                            <input type="submit" value="Guardar" class="boton"/>
+                        </form>
                     </div>
                 </div>
             </div>
