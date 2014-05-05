@@ -2,6 +2,8 @@
 
 @include_once 'init.php';
 include_once ROOT_DIR . '/datos/instituciones.php';
+include_once ROOT_DIR . '/datos/carreras.php';
+
 
 class Servicios {
 
@@ -24,6 +26,36 @@ class Servicios {
         $institucionesRepository = new DataInstituciones();
         $institucionesRepository->modificaInstitucion($oInstitucion);
     }
+
+        public function getCarreras() {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarreras();
+    }
+
+    public function altaCarrera(Carrera $oCarrera) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->altaCarrera($oCarrera);
+    }
+
+   public function getCarreraById($idCarrera) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarreraById($idCarrera);
+    }
+
+
+    public function modificaCarrera(Carrera $oCarrera) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->modificaCarrera($oCarrera);
+    }
+
+    public function bajaCarrera($idCarrera) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->bajaCarrera($idCarrera);
+    }
+
+
+
+
 
 }
 
