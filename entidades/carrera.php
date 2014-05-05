@@ -24,6 +24,14 @@ class Carrera {
         $this->id = $id;
     }
 
+    public function getIdInstitucion() {
+        return $this->idInstitucion;
+    }
+
+    public function setIdInstitucion($id) {
+        $this->idInstitucion = $idInstitucion;
+    }
+
     public function getNombre() {
         return $this->nombre;
     }

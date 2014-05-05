@@ -32,16 +32,17 @@
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>CARGA CARRERA</h1>
-                        <form method="POST" action="">
+                        <form method="POST" action="carrera_abm.php?action=alta">
                             <label>Nombre de la carrera</label><br/>
-                            <input name="nombre_Carrera" type="text" class="textbox" style="width:50%" required/><br/>
-                            
+
+                            <input name="nombre" type="text" class="textbox" style="width:50%" required/><br/>
                             <label>Descripción</label><br/>
                             <textarea name="descripcion" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
                              <label>Incumbencias</label><br/>
-                            <textarea name="icumbencias" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
+                            <textarea name="incumbencias" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
                             <label>Plan de estudio</label><br/>
-                            <input name="planEstudio" type="file" class="textbox" style="width:50%;height: 25px;" required/><br/><br/>
+                            <input name="planEstudio" type="file" class="textbox" style="width:50%;height: 25px;"/><br/><br/>
+                            <input type="hidden" value="1" name="idInstitucion">
                             <input type="submit" value="Guardar" class="boton"/> <a href="institucion_alta.html" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
                         </form>
 
