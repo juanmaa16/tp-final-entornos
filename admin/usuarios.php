@@ -1,3 +1,11 @@
+<?php
+@include_once '../init.php';
+include_once ROOT_DIR . '/entidades/institucion.php';
+include_once ROOT_DIR . '/servicios/servicios.php';
+$servicios=new Servicios();
+$vInstituciones=$servicios->getInstituciones();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,31 +39,19 @@
                 </div>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
+                    <?php if(!empty ($vInsituciones)) {foreach($vInstituciones as $oInstitucion){?>
                     <table id="usuarios" border="0">
                         <tr>
-                            <td width="90%">Universidad Tecnológica Nacional</td>
+                            <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
                             <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href=""><img src="../images/edit.png"/></a></td>
-                            <td><a data="Eliminar usuario" href=""><img src="../images/delete.png"/></a></td>
+                            <td><a data="Editar usuario" href="institucion_modifica.php"><img src="../images/edit.png"/></a></td>
+                            <td><a data="Eliminar usuario" href="institucion_abm.php?action=baja&id=<?php echo $oInstitucion->getId();?>"><img src="../images/delete.png"/></a></td>
                         </tr>
-                        <tr>
-                            <td width="90%">Universidad Abierta Interamericana</td>
-                            <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href=""><img src="../images/edit.png"/></a></td>
-                            <td><a data="Eliminar usuario" href=""><img src="../images/delete.png"/></a></td>
-                        </tr>
-                        <tr>
-                            <td width="90%">Universidad Católica Argentina (?)</td>
-                            <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href=""><img src="../images/edit.png"/></a></td>
-                            <td><a data="Eliminar usuario" href=""><img src="../images/delete.png"/></a></td>
-                        </tr>
-                        <tr>
-                            <td width="90%">Instituto Universitario Gran Rosario</td>
-                            <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href=""><img src="../images/edit.png"/></a></td>
-                            <td><a data="Eliminar usuario" href=""><img src="../images/delete.png"/></a></td>
-                        </tr>
+                        
+                        <?php }
+					}else{
+						echo "No hay instituciones";
+					}?>                        
                     </table>
                 </div>
             </div>

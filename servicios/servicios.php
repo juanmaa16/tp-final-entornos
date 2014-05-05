@@ -24,6 +24,10 @@ class Servicios {
         $institucionesRepository = new DataInstituciones();
         $institucionesRepository->modificaInstitucion($oInstitucion);
     }
+	public function bajaInstitucion($id){
+		$institucionesRepository = new DataInstituciones();
+		$institucionesRepository->bajaInstitucion($id);
+	}
 
 }
 

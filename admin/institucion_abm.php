@@ -35,6 +35,8 @@ if ($action == "alta") {
 
     $servicios->modificaInstitucion($oInstitucion);
 } elseif ($action == "baja") {
-    
+    $id = $_GET['id'];
+	$servicios->bajaInstitucion($id);
+	header("Location:usuarios.php");
 }
 ?>
