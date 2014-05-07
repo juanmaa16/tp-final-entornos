@@ -21,8 +21,6 @@ CREATE TABLE `areas_interes` (
   PRIMARY KEY (`id_area_interes`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-/*Data for the table `areas_interes` */
-
 /*Table structure for table `carreras` */
 
 DROP TABLE IF EXISTS `carreras`;
@@ -42,8 +40,6 @@ CREATE TABLE `carreras` (
   CONSTRAINT `fk_carreras_areas_interes1` FOREIGN KEY (`id_area_interes`) REFERENCES `areas_interes` (`id_area_interes`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-/*Data for the table `carreras` */
-
 /*Table structure for table `instituciones` */
 
 DROP TABLE IF EXISTS `instituciones`;
@@ -58,11 +54,7 @@ CREATE TABLE `instituciones` (
   `email_institucion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `web_institucion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_institucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
-/*Data for the table `instituciones` */
-
-insert  into `instituciones`(`id_institucion`,`nombre_institucion`,`logo_institucion`,`direccion_institucion`,`descripcion_institucion`,`telefono_institucion`,`email_institucion`,`web_institucion`) values (1,'Universidad Tecnologica Nacional','ellogo.png','Zeballos 1300','Alta facultad',NULL,NULL,NULL);
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Table structure for table `usuarios` */
 
@@ -77,8 +69,6 @@ CREATE TABLE `usuarios` (
   KEY `fk_usuarios_instituciones1_idx` (`id_institucion`),
   CONSTRAINT `fk_usuarios_instituciones1` FOREIGN KEY (`id_institucion`) REFERENCES `instituciones` (`id_institucion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
-/*Data for the table `usuarios` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
