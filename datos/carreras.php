@@ -32,6 +32,19 @@ class DataCarreras {
         return $vCarreras;
     }
 
+    public function getCarrerasPag($from, $limit) {
+        $bd = new Conexion();
+        $row = $bd->query("SELECT * FROM carreras LIMIT $from, $limit");
+        $index = 0;
+        $vCarreras = array();
+        foreach ($row as $registro) {
+            $oCarrera = $this->generaCarrera($registro);
+            $vCarreras[$index] = $oCarrera;
+            $index++;
+        }
+        return $vCarreras;
+    }
+
     public function getCarreraById($idCarrera) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM carreras WHERE id_carrera=" . $idCarrera);

@@ -31,6 +31,11 @@ class Servicios {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarreras();
     }
+    
+    public function getCarrerasPag($from,$limit) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarrerasPag($from, $limit);
+    }
 
     public function altaCarrera(Carrera $oCarrera) {
         $carrerasRepository = new DataCarreras();

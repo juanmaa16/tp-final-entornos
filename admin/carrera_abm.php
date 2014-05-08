@@ -19,8 +19,7 @@ if ($action == "alta") {
     $oCarrera = new Carrera("", $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion, $areaInteres);
 
     $servicios->altaCarrera($oCarrera);
-
-    header("Location: http://www.google.com.ar");
+    header("Location: carreras.php");
 } elseif ($action == "modifica") {
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
@@ -34,9 +33,10 @@ if ($action == "alta") {
     $oCarrera = new Carrera($id, $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion, $areaInteres);
 
     $servicios->modificaCarrera($oCarrera);
+    header("Location: carreras.php");
 } elseif ($action == "baja") {
     $idCarrera = $_GET['id'];
     $servicios->bajaCarrera($idCarrera);
-    header("Location: http://www.google.com.ar");
+    header("Location: carreras.php");
 }
 ?>
