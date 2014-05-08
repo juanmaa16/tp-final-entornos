@@ -53,6 +53,25 @@ public function bajaInstitucion($id){
 	        $bd = new Conexion();
 			$bd->query("DELETE FROM instituciones WHERE id_institucion=" . $id);
 	}
+	
+	
+public function getInstitucionesPag($from,$perPage){
+	 $bd = new Conexion();
+     $row = $bd->query("SELECT * FROM instituciones ORDER BY nombre_institucion DESC LIMIT $from,$perPage");
+     $vInstituciones = array();
+	 
+      if($row)
+		{
+			$index = 0;
+        
+        foreach ($row as $registro) {
+            $oInstitucion = $this->generaInstitucion($registro);
+            $vInstituciones[$index] = $oInstitucion;
+            $index++;
+        }
+		}
+        return $vInstituciones;
+	}
 
 
     private function generaInstitucion($row) {

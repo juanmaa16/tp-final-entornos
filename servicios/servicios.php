@@ -28,6 +28,11 @@ class Servicios {
 		$institucionesRepository = new DataInstituciones();
 		$institucionesRepository->bajaInstitucion($id);
 	}
+	public function getInstitucionesPag($from,$perPage)
+	{
+		$institucionesRepository = new DataInstituciones();
+        return $institucionesRepository->getInstitucionesPag($from,$perPage);
+	}
 
 }
 

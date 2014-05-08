@@ -2,8 +2,17 @@
 @include_once '../init.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+$perPage=2;
+$total_results = 0;
+if (!isset($_GET['pag'])) {
+    $page = 1;
+} else {
+    $page = $_GET['pag'];
+}
+$from = (($page * $perPage - $perPage));
 $servicios=new Servicios();
-$vInstituciones=$servicios->getInstituciones();
+$vInstituciones=$servicios->getInstitucionesPag($from,$perPage);
+$total_results = count($servicios->getInstituciones());
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +31,9 @@ $vInstituciones=$servicios->getInstituciones();
             <div id="header">
                 <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
                 <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
+                 <!--   <form action="" method="get">
+                        <input type="text" placeholder="Buscar..."/
+                    </form>>-->
                 </div>
             </div>
             <div id="principal">
@@ -39,7 +48,7 @@ $vInstituciones=$servicios->getInstituciones();
                 </div>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
-                    <?php if(!empty ($vInsituciones)) {foreach($vInstituciones as $oInstitucion){?>
+                    <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
                     <table id="usuarios" border="0">
                         <tr>
                             <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
@@ -53,6 +62,44 @@ $vInstituciones=$servicios->getInstituciones();
 						echo "No hay instituciones";
 					}?>                        
                     </table>
+                    
+                    <?php 
+$total_paginas = ceil($total_results/$perPage);	
+if ($total_paginas > 1)
+{
+	for($i = 1;$i <= $total_paginas; $i++)
+	{
+      $prev = ($page - 1);
+      echo '<a href="?pag=' . $prev . '">&lt;</a>';
+	}
+}elseif ($total_paginas == 1 || $page == 1) 
+{
+     echo '<span class="disabled_tnt_pagination"><<</span>';
+}
+	 for ($i = 1; $i <= $total_paginas; $i++) {
+     if ($page == $i) {
+                    echo '<a href="#"><b> ' . $i . ' </b></a>';
+                      } else {
+                             echo '<a href="?pag=' . $i . '"> ' . $i . ' </a>';
+                             }
+                     }
+
+             if ($page < $total_paginas) {
+                            $next = ($page + 1);
+                            echo '<a href="?pag=' . $next . '"> >></a>';
+                        }
+                        if ($page == $total_paginas) {
+                            echo '<span class="disabled_tnt_pagination">>></span>';
+                        }
+						
+						
+		 
+
+                          
+
+                       
+?>
+                    
                 </div>
             </div>
             <div id="footer">

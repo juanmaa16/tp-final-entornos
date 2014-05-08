@@ -1,3 +1,11 @@
+<?php
+@include_once 'init.php';
+include_once ROOT_DIR . '/entidades/institucion.php';
+include_once ROOT_DIR . '/servicios/servicios.php';
+$servicios=new Servicios();
+$vInstituciones=$servicios->getInstituciones();
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,13 +37,14 @@
                 <div id="contenido">
           		<h1>LISTADO DE INSTITUCIONES</h1>
                 <hr>
+                <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
                 <ul id="lista-carr">
-                <li><a href="institucion.html"> <img id="logo-list" src="http://placehold.it/35x35&text=logo"/>UTN</a></li>
-                <li><a href="institucion.html"> <img id="logo-list" src="http://placehold.it/35x35&text=logo"/>UNR</a></li>
-                 <li><a href="institucion.html"> <img id="logo-list" src="http://placehold.it/35x35&text=logo"/>UCA</a></li>
-                  <li><a href="institucion.html"> <img id="logo-list" src="http://placehold.it/35x35&text=logo"/>UAI</a></li>
+                <li><a href="institucion.php?id=<?php echo $oInstitucion->getId()?>"> <img id="logo-list" src="<?php echo $oInstitucion->getLogo();?>"/><?php echo $oInstitucion->getNombre();?></a></li>
                 </ul>
-                
+                <?php }
+					}else{
+						echo "No hay instituciones";
+					}?>  
                 </div>
                 <div id="publicidades">
                     publicidad
