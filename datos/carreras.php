@@ -58,9 +58,9 @@ class DataCarreras {
 			id_institucion='" . $oCarrera->getIdInstitucion() . "',id_area_interes='" . $oCarrera->getAreaInteres() . "' WHERE id_carrera=" . $oCarrera->getId());
     }
 
-    public function bajaCarrera(Carrera $oCarrera) {
+    public function bajaCarrera($idCarrera) {
         $bd = new Conexion();
-        $bd->query("DELETE FROM carreras WHERE id_carrera=" . $oCarrera->getId());
+        $bd->query("DELETE FROM carreras WHERE id_carrera=" . $idCarrera);
     }
 
 }

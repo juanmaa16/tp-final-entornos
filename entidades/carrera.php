@@ -75,8 +75,6 @@ class Carrera {
     public function setIncumbencias($incumbencias) {
         $this->incumbencias = $incumbencias;
     }
-
-    //TODO: Filtro por area de interes, filtro por institucion
 }
 
 ?>

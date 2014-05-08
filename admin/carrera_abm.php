@@ -35,6 +35,8 @@ if ($action == "alta") {
 
     $servicios->modificaCarrera($oCarrera);
 } elseif ($action == "baja") {
-    
+    $idCarrera = $_GET['id'];
+    $servicios->bajaCarrera($idCarrera);
+    header("Location: http://www.google.com.ar");
 }
 ?>
