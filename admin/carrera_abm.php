@@ -14,8 +14,9 @@ if ($action == "alta") {
     $planEstudio = "planestudio.pdf";
     $incumbencias = trim($_POST['incumbencias']);
     $idInstitucion = $_POST['idInstitucion'];
+    $areaInteres = $_POST['areaInteres'];
 
-    $oCarrera = new Carrera("", $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion);
+    $oCarrera = new Carrera("", $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion, $areaInteres);
 
     $servicios->altaCarrera($oCarrera);
 
@@ -28,12 +29,12 @@ if ($action == "alta") {
     $planEstudio = "planestudio.pdf";
     $incumbencias = trim($_POST['incumbencias']);
     $idInstitucion = $_POST['idInstitucion'];
+    $areaInteres = $_POST['areaInteres'];
 
-    $oCarrera = new Carrera($id, $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion);
-   
+    $oCarrera = new Carrera($id, $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion, $areaInteres);
+
     $servicios->modificaCarrera($oCarrera);
 } elseif ($action == "baja") {
-
     
 }
 ?>

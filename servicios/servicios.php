@@ -3,7 +3,7 @@
 @include_once 'init.php';
 include_once ROOT_DIR . '/datos/instituciones.php';
 include_once ROOT_DIR . '/datos/carreras.php';
-
+include_once ROOT_DIR . '/datos/areasInteres.php';
 
 class Servicios {
 
@@ -27,7 +27,7 @@ class Servicios {
         $institucionesRepository->modificaInstitucion($oInstitucion);
     }
 
-        public function getCarreras() {
+    public function getCarreras() {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarreras();
     }
@@ -37,11 +37,10 @@ class Servicios {
         return $carrerasRepository->altaCarrera($oCarrera);
     }
 
-   public function getCarreraById($idCarrera) {
+    public function getCarreraById($idCarrera) {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarreraById($idCarrera);
     }
-
 
     public function modificaCarrera(Carrera $oCarrera) {
         $carrerasRepository = new DataCarreras();
@@ -53,9 +52,10 @@ class Servicios {
         return $carrerasRepository->bajaCarrera($idCarrera);
     }
 
-
-
-
+    public function getAreasInteres() {
+        $areasInteresRepository = new DataAreasInteres();
+        return $areasInteresRepository->getAreasInteres();
+    }
 
 }
 
