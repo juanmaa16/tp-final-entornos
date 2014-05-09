@@ -31,10 +31,20 @@ class Servicios {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarreras();
     }
-    
-    public function getCarrerasPag($from,$limit) {
+
+    public function getCarrerasPag($from, $limit) {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarrerasPag($from, $limit);
+    }
+
+    public function getCarrerasByInstitucion($idInstitucion) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarrerasByInstitucion($idInstitucion);
+    }
+
+    public function getCarrerasByInstitucionPag($from, $limit, $idInstitucion) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarrerasByInstitucionPag($from, $limit, $idInstitucion);
     }
 
     public function altaCarrera(Carrera $oCarrera) {
