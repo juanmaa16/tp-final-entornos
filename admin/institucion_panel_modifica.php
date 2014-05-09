@@ -21,7 +21,7 @@ include '../disenio.php' ;
                     <div id="cuerpo">
                         <h1>PANEL DE MODIFICACIONES</h1>
                       <ul>
-                      <br><li> <a href="institucion_modifica.html">INSTITUCIÓN</a></li><br>
+                      <br><li> <a href="usuarios.php">INSTITUCIÓN</a></li><br>
                       <li> <a href="institucion-modifica-listaCarr.html">CARRERAS</a></li><br>
                        <li> <a href="institucion-modifica-pass.php">CONTRASEÑA</a></li>
                       </ul>  

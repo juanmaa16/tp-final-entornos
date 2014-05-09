@@ -20,7 +20,7 @@ if ($action == "alta") {
 
     $servicios->altaInstitucion($oInstitucion);
 
-    header("Location: http://www.google.com.ar");
+    header("Location: institucion_panel_modifica.php");
 } elseif ($action == "modifica") {
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];

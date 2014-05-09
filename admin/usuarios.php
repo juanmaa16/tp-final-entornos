@@ -4,7 +4,7 @@ include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
 include '../disenio.php' ; 
 
-$perPage=2;
+$perPage=10;
 $total_results = 0;
 if (!isset($_GET['pag'])) {
     $page = 1;
@@ -36,8 +36,11 @@ $total_results = count($servicios->getInstituciones());
                 <?php menuAdmin(); ?>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
+                   <!--  BOTON!!!! <a href="institucion_alta.php" ><input style="margin-left:150px"  type="button" value="Nueva" class="boton"/></a> -->
                     <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
                     <table id="usuarios" border="0">
+                        <tr>
+                        </tr>
                         <tr>
                             <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
                             <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>

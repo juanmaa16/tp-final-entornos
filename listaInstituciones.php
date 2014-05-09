@@ -6,7 +6,7 @@ include 'disenio.php' ;
 $servicios=new Servicios();
 $vInstituciones=$servicios->getInstituciones();
 
-$perPage=2;
+$perPage=10;
 $total_results = 0;
 if (!isset($_GET['pag'])) {
     $page = 1;
