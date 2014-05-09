@@ -6,9 +6,9 @@ require_once (ROOT_DIR . "/entidades/usuario.php");
 
 class DataUsuarios {
 
-    public function getUsuarios() {
+    public function getUsuarioByNombreUsuario($nombreUsuario) {
         $bd = new Conexion();
-        $row = $bd->query("SELECT * FROM usuarios");
+        $row = $bd->query("SELECT * FROM usuarios WHERE nombre_usuario='$nombreUsuario'");
         $index = 0;
         $vUsuarios = array();
         foreach ($row as $registro) {
@@ -19,12 +19,12 @@ class DataUsuarios {
         return $vUsuarios;
     }
 
-    public function generaUsuario($row) {
-        $usuario = $row['usuario'];
-        $password = $row['password'];
-        $oUsuario = new Usuario();
-        $oUsuario->setUser($usuario);
-        $oUsuario->setPass($password);
+    private function generaUsuario($row) {
+        $id = $row['id_usuario'];
+        $usuario = $row['nombre_usuario'];
+        $password = $row['clave_usuario'];
+        $idInstitucion = $row['id_institucion'];
+        $oUsuario = new Usuario($id, $usuario, $password, $idInstitucion);
         return $oUsuario;
     }
 

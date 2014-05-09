@@ -4,6 +4,7 @@
 include_once ROOT_DIR . '/datos/instituciones.php';
 include_once ROOT_DIR . '/datos/carreras.php';
 include_once ROOT_DIR . '/datos/areasInteres.php';
+include_once ROOT_DIR . '/datos/usuarios.php';
 
 class Servicios {
 
@@ -70,6 +71,11 @@ class Servicios {
     public function getAreasInteres() {
         $areasInteresRepository = new DataAreasInteres();
         return $areasInteresRepository->getAreasInteres();
+    }
+
+    public function getUsuarioByNombreUsuario() {
+        $usuariosRepository = new DataUsuarios();
+        return $usuariosRepository->getUsuarioByNombreUsuario($nombreUsuario);
     }
 
 }

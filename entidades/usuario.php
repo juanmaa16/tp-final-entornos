@@ -2,23 +2,48 @@
 
 class Usuario {
 
-    private $user;
-    private $pass;
+    private $id;
+    private $usuario;
+    private $password;
+    private $idInstitucion;
 
-    public function getUser() {
-        return $this->user;
+    function __construct($id, $usuario, $password, $idInstitucion) {
+        $this->id = $id;
+        $this->usuario = $usuario;
+        $this->password = $password;
+        $this->idInstitucion = $idInstitucion;
     }
 
-    public function setUser($user) {
-        $this->user = $user;
+    public function getId() {
+        return $this->id;
     }
 
-    public function getPass() {
-        return $this->pass;
+    public function setId($id) {
+        $this->id = $id;
     }
 
-    public function setPass($pass) {
-        $this->pass = $pass;
+    public function getUsuario() {
+        return $this->usuario;
+    }
+
+    public function setUsuario($usuario) {
+        $this->usuario = $usuario;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function getIdInstitucion() {
+        return $this->idInstitucion;
+    }
+
+    public function setIdInstitucion($idInstitucion) {
+        $this->idInstitucion = $idInstitucion;
     }
 
 }
