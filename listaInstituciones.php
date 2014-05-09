@@ -2,10 +2,21 @@
 @include_once 'init.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
-include disenio.php;
+include 'disenio.php' ;
 $servicios=new Servicios();
 $vInstituciones=$servicios->getInstituciones();
 
+$perPage=2;
+$total_results = 0;
+if (!isset($_GET['pag'])) {
+    $page = 1;
+} else {
+    $page = $_GET['pag'];
+}
+$from = (($page * $perPage - $perPage));
+$servicios=new Servicios();
+$vInstituciones=$servicios->getInstitucionesPag($from,$perPage);
+$total_results = count($servicios->getInstituciones());
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,14 +42,50 @@ $vInstituciones=$servicios->getInstituciones();
                 <div id="contenido">
           		<h1>LISTADO DE INSTITUCIONES</h1>
                 <hr>
-                <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
-                <ul id="lista-carr">
-                <li><a href="institucion.php?id=<?php echo $oInstitucion->getId()?>"> <img id="logo-list" src="<?php echo $oInstitucion->getLogo();?>"/><?php echo $oInstitucion->getNombre();?></a></li>
-                </ul>
-                <?php }
+                                   <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
+                    <table id="usuarios" border="0">
+                        <tr>
+                            <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
+                           
+                        </tr>
+                        
+                        <?php }
 					}else{
 						echo "No hay instituciones";
-					}?>  
+					}?>                        
+                    </table>
+                    
+                    <?php 
+$total_paginas = ceil($total_results/$perPage);	
+if ($total_paginas > 1)
+{
+	for($i = 1;$i <= $total_paginas; $i++)
+	{
+      $prev = ($page - 1);
+      echo '<a href="?pag=' . $prev . '">&lt;</a>';
+	}
+}elseif ($total_paginas == 1 || $page == 1) 
+{
+     echo '<span class="disabled_tnt_pagination"><<</span>';
+}
+	 for ($i = 1; $i <= $total_paginas; $i++) {
+     if ($page == $i) {
+                    echo '<a href="#"><b> ' . $i . ' </b></a>';
+                      } else {
+                             echo '<a href="?pag=' . $i . '"> ' . $i . ' </a>';
+                             }
+                     }
+
+             if ($page < $total_paginas) {
+                            $next = ($page + 1);
+                            echo '<a href="?pag=' . $next . '"> >></a>';
+                        }
+                        if ($page == $total_paginas) {
+                            echo '<span class="disabled_tnt_pagination">>></span>';
+                        }
+                       
+?>
+                
                 </div>
                 <div id="publicidades">
                     publicidad
