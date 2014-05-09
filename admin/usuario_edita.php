@@ -1,3 +1,6 @@
+<?php 
+include '../disenio.php' ; 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,14 +14,7 @@
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+             <?php cabecera(); ?>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
@@ -31,19 +27,21 @@
                 </div>
                 <div id="contenido-admin">
                     <div id="cuerpo">
-                        <h1>PANEL DE MODIFICACIONES</h1>
-                      <ul>
-                      <br><li> <a href="institucion_modifica.html">INSTITUCIÓN</a></li><br>
-                      <li> <a href="institucion-modifica-listaCarr.html">CARRERAS</a></li><br>
-                       <li> <a href="institucion-modifica-pass.html">CONTRASEÑA</a></li>
-                      </ul>  
-
-
+                        <h1>EDITAR USUARIO</h1>
+                        <form method="POST" action="">
+                            <label>Nombre institución</label><br/>
+                            <input name="nombre" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Usuario</label><br/>
+                            <input name="usuario" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Contraseña</label><br/>
+                            <input name="password" type="text" class="textbox" style="width:50%" required/><br/>
+                            <input type="submit" value="Modificar" class="boton"/>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div id="footer">
-            </div>
+             <?php pie(); ?>
         </div>
     </body>
 </html>
+

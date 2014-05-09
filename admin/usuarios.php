@@ -2,6 +2,8 @@
 @include_once '../init.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+include '../disenio.php' ; 
+
 $perPage=2;
 $total_results = 0;
 if (!isset($_GET['pag'])) {
@@ -13,6 +15,7 @@ $from = (($page * $perPage - $perPage));
 $servicios=new Servicios();
 $vInstituciones=$servicios->getInstitucionesPag($from,$perPage);
 $total_results = count($servicios->getInstituciones());
+
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +31,7 @@ $total_results = count($servicios->getInstituciones());
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                 <!--   <form action="" method="get">
-                        <input type="text" placeholder="Buscar..."/
-                    </form>>-->
-                </div>
-            </div>
+          <?php cabecera(); ?>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
@@ -53,7 +49,7 @@ $total_results = count($servicios->getInstituciones());
                         <tr>
                             <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
                             <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href="institucion_modifica.php"><img src="../images/edit.png"/></a></td>
+                            <td><a data="Editar usuario" href="institucion_modifica.php?action=baja&id=<?php echo $oInstitucion->getId();?>"><img src="../images/edit.png"/></a></td>
                             <td><a data="Eliminar usuario" href="institucion_abm.php?action=baja&id=<?php echo $oInstitucion->getId();?>"><img src="../images/delete.png"/></a></td>
                         </tr>
                         
@@ -102,8 +98,8 @@ if ($total_paginas > 1)
                     
                 </div>
             </div>
-            <div id="footer">
-            </div>
+              <?php pie(); ?>
+
         </div>
     </body>
 </html>

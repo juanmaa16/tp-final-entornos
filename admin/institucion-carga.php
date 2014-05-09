@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+include '../disenio.php' ; 
+?><!DOCTYPE html>
 <html>
     <head>
         <title></title>
@@ -11,14 +13,7 @@
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+             <?php cabecera(); ?>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
@@ -31,22 +26,18 @@
                 </div>
                 <div id="contenido-admin">
                     <div id="cuerpo">
-                        <h1>MODIFICAR CONTRASEÑA</h1>
-
-                        <form method="POST" action="">
-                            <label>Contraseña</label><br/>
-                            <input name="password" type="password" class="textbox" style="width:50%" required/><br/>
-                            <label>Repetir Contraseña</label><br/>
-                            <input name="password2" type="password" class="textbox" style="width:50%" required/><br/><br>
-                            <input type="submit" value="Guardar" class="boton"/><a href="institucion_panel_modifica.html" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
-                        </form>
+                        <h1>PANEL DE CARGAS</h1>
+                      <ul>
+                      <br><li> <a href="institucion_alta.php">INSTITUCIÓN</a></li><br>
+                      <li> <a href="institucion-alta-carrera.php">CARRERA</a></li><br>
+                      
+                      </ul>  
 
 
                     </div>
                 </div>
             </div>
-            <div id="footer">
-            </div>
+             <?php pie(); ?>
         </div>
     </body>
 </html>

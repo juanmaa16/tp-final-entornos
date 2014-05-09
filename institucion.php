@@ -2,6 +2,7 @@
 @include_once 'init.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+include disenio.php;
 
 $idInstitucion=$_GET['id'];
 $servicios=new Servicios();
@@ -17,14 +18,7 @@ $oInstitucion=$servicios->getInstitucionById($idInstitucion);
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="index.html"><img id="logo" src="images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <input type="text" placeholder="Buscar..."/>
-                    </form>
-                </div>
-            </div>
+             <?php cabecera(); ?>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
@@ -72,8 +66,7 @@ $oInstitucion=$servicios->getInstitucionById($idInstitucion);
                 </div>
 
             </div>
-            <div id="footer">
-            </div>
+             <?php pie(); ?>
         </div>
     </body>
 </html>

@@ -1,3 +1,6 @@
+<?php 
+include '../disenio.php' ; 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,14 +14,7 @@
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+             <?php cabecera(); ?>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
@@ -31,26 +27,28 @@
                 </div>
                 <div id="contenido-admin">
                     <div id="cuerpo">
-                        <h1>MODIFICAR CARRERA</h1>
-                        <form method="POST" action="">
-                            <label>Nombre de la carrera</label><br/>
-                            <input name="nombre_Carrera" type="text" class="textbox" style="width:50%" required/><br/>
-                            
+                        <h1>CARGA INSTITUCIÓN</h1>
+                        <form method="POST" action="institucion_abm.php?action=alta">
+                            <label>Nombre</label><br/>
+                            <input name="nombre" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Logo</label><br/>
+                            <input name="logo" type="file" class="textbox" style="width:50%;height: 25px;"/><br/>
                             <label>Descripción</label><br/>
                             <textarea name="descripcion" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
-                             <label>Incumbencias</label><br/>
-                            <textarea name="icumbencias" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
-                            <label>Plan de estudio</label><br/>
-                            <input name="planEstudio" type="file" class="textbox" style="width:50%;height: 25px;" required/><br/><br/>
-                            <input type="submit" value="Guardar" class="boton"/> <a href="institucion_panel_modifica.html" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
+                            <label>Dirección</label><br/>
+                            <input name="direccion" type="text" class="textbox" style="width:50%" required/><br/>
+                            <label>Email</label><br/>
+                            <input name="email" type="text" class="textbox" style="width:50%"/><br/>
+                            <label>Telefono</label><br/>
+                            <input name="telefono" type="text" class="textbox" style="width:50%"/><br/>
+                            <label>Web</label><br/>
+                            <input name="web" type="text" class="textbox" style="width:50%"/><br/>
+                            <input type="submit" value="Guardar" class="boton"/>
                         </form>
-
-
                     </div>
                 </div>
             </div>
-            <div id="footer">
-            </div>
+             <?php pie(); ?>
         </div>
     </body>
 </html>
