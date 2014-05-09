@@ -1,6 +1,7 @@
 <?php
-@include_once '../init.php';
+@include_once 'init.php';
 include_once ROOT_DIR . '/entidades/carrera.php';
+include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
 
 $perpage = 10;
@@ -13,7 +14,6 @@ if (!isset($_GET['pag']) || ($_GET['pag']) == 1) {
     $from = (($page * $perpage - $perpage));
 }
 $servicios = new Servicios();
-//TODO: Agregar validacion si es administrador o institucion y llamar a sus metodos para listar
 $vCarreras = $servicios->getCarrerasPag($from, $perpage);
 $total_results = count($servicios->getCarreras());
 
@@ -24,47 +24,41 @@ $total_results = count($servicios->getCarreras());
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/menu.css">
-        <script src="js/jquery-1.9.1.js"></script>
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery.validate.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/menu.css">
     </head>
     <body>
         <div id="contenedor">
             <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
+                <a href="index.html"><img id="logo" src="images/logo.png"/></a>
                 <div id="buscador">
                     <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
+                        <input type="text" placeholder="Buscar..."/>
                     </form>
                 </div>
             </div>
             <div id="principal">
                 <div id="menu">
                     <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="../images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
+                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
                         <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
                         <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
                         <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="index.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
+                        <li class="toplast"><a href="contacto.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
                     </ul>
                 </div>
-                <div id="contenido-admin">
-                    <h1>CARRERAS</h1>
-                    <table id="carreras" border="0">
-
+                <div id="contenido">
+                    <h1>LISTADO DE CARRERAS</h1>
+                    <hr>
+                    <ul id="lista-carr">
                         <?php
-                        foreach ($vCarreras as $oCarrera) {
-                            echo '<tr>';
-                            echo '<td width="90%">' . $oCarrera->getNombre() . '</td>';
-                            echo '<td><a data="Editar carrera" href="carrera_modifica.php?id=' . $oCarrera->getId() . '"><img src="../images/edit.png"/></a></td>';
-                            echo '<td><a data="Eliminar carrera" href="carrera_abm.php?action=baja&id=' . $oCarrera->getId() . '"><img src="../images/delete.png"/></a></td>';
-                            echo '</tr>';
+                        foreach($vCarreras as $oCarrera){
+                            $oInstitucion=$servicios->getInstitucionById($oCarrera->getIdInstitucion());
+                            //Falta hacer lo del logo
+                            echo '<li><a href="carrera.php?id='.$oCarrera->getId().'"> <img id="logo-list" src="http://placehold.it/90x90&text=logo"/>'.$oCarrera->getNombre().'</a></li>';
                         }
                         ?>
-                    </table>
-                    <a href="carrera_alta.php">Nueva carrera</a>
+                    </ul>
 
                     <div id="tnt_pagination" style="clear: both;text-align: center;margin-bottom: 20px;">
                         <?php
@@ -95,12 +89,14 @@ $total_results = count($servicios->getCarreras());
                         ?>
                     </div>
 
-
                 </div>
+                <div id="publicidades">
+                    publicidad
+                </div>
+
             </div>
             <div id="footer">
             </div>
         </div>
     </body>
 </html>
-
