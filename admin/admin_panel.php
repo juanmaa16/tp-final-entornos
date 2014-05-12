@@ -1,3 +1,6 @@
+<?php
+require 'admin_check.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,17 +34,7 @@
                 </div>
                 <div id="contenido-admin">
                     <div id="cuerpo">
-                        <h1>INGRESO ADMINISTRACIÓN</h1>
-
-                        <form method="POST" action="">
-                            <label>Usuario</label><br/>
-                            <input name="usuario" type="text" class="textbox" style="width:50%" required/><br/>
-                            <label>Contraseña</label><br/>
-                            <input name="password" type="password" class="textbox" style="width:50%" required/><br/>
-                            <input type="submit" value="Ingresar" class="boton"/>
-                        </form>
-
-
+                        <h1>Bienvenido <?php echo $_SESSION['nombre_usuario'];?></h1>
                     </div>
                 </div>
             </div>

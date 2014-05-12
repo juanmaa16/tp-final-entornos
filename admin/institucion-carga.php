@@ -1,4 +1,5 @@
 <?php 
+require 'admin_check.php';
 include '../disenio.php' ; 
 ?><!DOCTYPE html>
 <html>

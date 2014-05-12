@@ -82,7 +82,7 @@ class Servicios {
         return $areasInteresRepository->getAreasInteres();
     }
 
-    public function getUsuarioByNombreUsuario() {
+    public function getUsuarioByNombreUsuario($nombreUsuario) {
         $usuariosRepository = new DataUsuarios();
         return $usuariosRepository->getUsuarioByNombreUsuario($nombreUsuario);
     }

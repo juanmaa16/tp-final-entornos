@@ -1,4 +1,5 @@
 <?php
+require 'admin_check.php';
 @include_once '../init.php';
 include_once ROOT_DIR . '/entidades/areaInteres.php';
 include_once ROOT_DIR . '/servicios/servicios.php';

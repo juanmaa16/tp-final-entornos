@@ -1,6 +1,5 @@
 <?php
 
-require_once ('init.php');
 require_once(ROOT_DIR . "/datos/data.php");
 require_once (ROOT_DIR . "/entidades/usuario.php");
 
@@ -9,14 +8,11 @@ class DataUsuarios {
     public function getUsuarioByNombreUsuario($nombreUsuario) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM usuarios WHERE nombre_usuario='$nombreUsuario'");
-        $index = 0;
-        $vUsuarios = array();
-        foreach ($row as $registro) {
-            $oUsuario = $this->generaUsuario($registro);
-            $vUsuarios[$index] = $oUsuario;
-            $index++;
+        $oUsuario = null;
+        if ($row[0]) {
+            $oUsuario = $this->generaUsuario($row[0]);
         }
-        return $vUsuarios;
+        return $oUsuario;
     }
 
     private function generaUsuario($row) {

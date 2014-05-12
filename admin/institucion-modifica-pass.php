@@ -1,5 +1,6 @@
-<?php 
-include '../disenio.php' ; 
+<?php
+require 'admin_check.php';
+include '../disenio.php';
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +14,9 @@ include '../disenio.php' ;
     </head>
     <body>
         <div id="contenedor">
-             <?php cabecera(); ?>
+            <?php cabecera(); ?>
             <div id="principal">
-               <?php menuAdmin(); ?>
+                <?php menuAdmin(); ?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>MODIFICAR CONTRASEÑA</h1>
@@ -32,7 +33,7 @@ include '../disenio.php' ;
                     </div>
                 </div>
             </div>
-             <?php pie(); ?>
+            <?php pie(); ?>
         </div>
     </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+require 'admin_check.php';
 @include_once '../init.php';
 include_once ROOT_DIR . '/entidades/carrera.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
@@ -16,7 +17,6 @@ $servicios = new Servicios();
 //TODO: Agregar validacion si es administrador o institucion y llamar a sus metodos para listar
 $vCarreras = $servicios->getCarrerasPag($from, $perpage);
 $total_results = count($servicios->getCarreras());
-
 ?>
 
 <!DOCTYPE html>

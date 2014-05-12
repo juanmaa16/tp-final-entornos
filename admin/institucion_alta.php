@@ -1,4 +1,5 @@
 <?php
+require 'admin_check.php';
 include '../init.php';
 include '../disenio.php';
 ?>

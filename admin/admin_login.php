@@ -33,7 +33,7 @@
                     <div id="cuerpo">
                         <h1>INGRESO ADMINISTRACIÓN</h1>
 
-                        <form method="POST" action="">
+                        <form method="POST" action="index.php">
                             <label>Usuario</label><br/>
                             <input name="usuario" type="text" class="textbox" style="width:50%" required/><br/>
                             <label>Contraseña</label><br/>
