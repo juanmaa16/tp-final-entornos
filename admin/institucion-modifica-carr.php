@@ -1,3 +1,6 @@
+<?php 
+include '../disenio.php' ; 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,24 +14,9 @@
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+             <?php cabecera(); ?>
             <div id="principal">
-                <div id="menu">
-                    <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="../images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
-                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
-                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
-                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="index.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
-                    </ul>
-                </div>
+                <?php menuAdmin(); ?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>MODIFICAR CARRERA</h1>
@@ -42,15 +30,14 @@
                             <textarea name="icumbencias" class="textbox" style="width:50%;height: 150px;"></textarea><br/>
                             <label>Plan de estudio</label><br/>
                             <input name="planEstudio" type="file" class="textbox" style="width:50%;height: 25px;" required/><br/><br/>
-                            <input type="submit" value="Guardar" class="boton"/> <a href="institucion_panel_modifica.html" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
+                            <input type="submit" value="Guardar" class="boton"/> <a href="institucion_panel_modifica.php" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
                         </form>
 
 
                     </div>
                 </div>
             </div>
-            <div id="footer">
-            </div>
+             <?php pie(); ?>
         </div>
     </body>
 </html>
