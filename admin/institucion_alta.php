@@ -1,5 +1,6 @@
-<?php 
-include '../disenio.php' ; 
+<?php
+include '../init.php';
+include '../disenio.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@ include '../disenio.php' ;
     </head>
     <body>
         <div id="contenedor">
-             <?php cabecera(); ?>
+            <?php cabecera(); ?>
             <div id="principal">
                 <?php menuAdmin(); ?>
                 <div id="contenido-admin">
@@ -40,7 +41,7 @@ include '../disenio.php' ;
                     </div>
                 </div>
             </div>
-             <?php pie(); ?>
+            <?php pie(); ?>
         </div>
     </body>
 </html>
