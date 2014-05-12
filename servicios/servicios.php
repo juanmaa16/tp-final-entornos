@@ -104,6 +104,11 @@ class Servicios {
         return $usuariosRepository->getUsuarios();
     }
 
+    public function modificaUsuario(Usuario $oUsuario) {
+        $usuariosRepository = new DataUsuarios();
+        $usuariosRepository->modificaUsuario($oUsuario);
+    }
+
 }
 
 ?>

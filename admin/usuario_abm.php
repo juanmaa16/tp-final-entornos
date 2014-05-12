@@ -19,19 +19,14 @@ if ($action == "alta") {
     $servicios->altaUsuario($oUsuario);
     header("Location: usuarios.php");
 } elseif ($action == "modifica") {
-//    $id = $_POST['id'];
-//    $nombre = $_POST['nombre'];
-//    $descripcion = trim($_POST['descripcion']);
-//    //$planEstudio = $_POST['planEstudio'];
-//    $planEstudio = "planestudio.pdf";
-//    $incumbencias = trim($_POST['incumbencias']);
-//    $idInstitucion = $_POST['idInstitucion'];
-//    $areaInteres = $_POST['areaInteres'];
-//
-//    $oCarrera = new Carrera($id, $nombre, $incumbencias, $planEstudio, $idInstitucion, $descripcion, $areaInteres);
-//
-//    $servicios->modificaCarrera($oCarrera);
-    header("Location: carreras.php");
+    $id = $_POST['id'];
+    $usuario = $_POST['usuario'];
+    $password = $_POST['password'];
+
+    $oUsuario = new Usuario($id, $usuario, md5($password), "");
+
+    $servicios->modificaUsuario($oUsuario);
+    header("Location: usuarios.php");
 } elseif ($action == "baja") {
 //    $idCarrera = $_GET['id'];
 //    $servicios->bajaCarrera($idCarrera);

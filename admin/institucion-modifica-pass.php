@@ -16,7 +16,7 @@ include '../disenio.php';
         <div id="contenedor">
             <?php cabecera(); ?>
             <div id="principal">
-                <?php menuAdmin(); ?>
+                <?php menu(); ?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>MODIFICAR CONTRASEÑA</h1>

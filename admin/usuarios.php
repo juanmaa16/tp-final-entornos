@@ -35,7 +35,7 @@ $total_results = count($servicios->getUsuarios());
         <div id="contenedor">
             <?php cabecera(); ?>
             <div id="principal">
-                <?php menuAdmin(); ?>
+                <?php menu(); ?>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
                     <?php
@@ -50,7 +50,7 @@ $total_results = count($servicios->getUsuarios());
                                     <tr>
                                         <td width="90%"><?php echo $oInstitucion->getNombre(); ?></td>
                                         <td><a data="Editar institución" href="institucion_modifica.php?id=<?php echo $oInstitucion->getId(); ?>"><img src="../images/edit-inst.png"/></a></td>
-                                        <td><a data="Editar usuario" href="usuario_modifica.php?id=<?php echo $oUsuario->getId(); ?>"><img src="../images/edit.png"/></a></td>
+                                        <td><a data="Editar usuario" href="usuario_modifica.php?u=<?php echo $oUsuario->getUsuario(); ?>"><img src="../images/edit.png"/></a></td>
                                         <td><a data="Eliminar usuario" href="usuario_abm.php?action=baja&id=<?php echo $oUsuario->getId(); ?>"><img src="../images/delete.png"/></a></td>
                                     </tr>
 

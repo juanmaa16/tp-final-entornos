@@ -41,6 +41,12 @@ class DataUsuarios {
             VALUES('" . $oUsuario->getUsuario() . "','" . $oUsuario->getPassword() . "','" . $oUsuario->getIdInstitucion() . "')");
     }
 
+    public function modificaUsuario(Usuario $oUsuario) {
+        $bd = new Conexion();
+        $bd->query("UPDATE usuarios SET nombre_usuario='" . $oUsuario->getUsuario() . "',clave_usuario='" . $oUsuario->getPassword() . "'
+                WHERE id_usuario=" . $oUsuario->getId());
+    }
+
     public function getUsuarioByNombreUsuario($nombreUsuario) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM usuarios WHERE nombre_usuario='$nombreUsuario'");

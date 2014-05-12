@@ -17,7 +17,7 @@ include '../disenio.php' ;
         <div id="contenedor">
              <?php cabecera(); ?>
             <div id="principal">
-                <?php menuAdmin(); ?>
+                <?php menuInstitucion(); ?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>ASIGNAR USUARIO</h1>
