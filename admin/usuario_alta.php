@@ -21,9 +21,9 @@ include '../disenio.php' ;
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>ASIGNAR USUARIO</h1>
-                        <form method="POST" action="">
+                        <form method="POST" action="usuario_abm.php?action=alta">
                             <label>Nombre institución</label><br/>
-                            <input name="nombre" type="text" class="textbox" style="width:50%" required/><br/>
+                            <input name="nombre_institucion" type="text" class="textbox" style="width:50%" required/><br/>
                             <label>Usuario</label><br/>
                             <input name="usuario" type="text" class="textbox" style="width:50%" required/><br/>
                             <label>Contraseña</label><br/>

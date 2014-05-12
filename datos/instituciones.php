@@ -9,16 +9,15 @@ class DataInstituciones {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM instituciones");
         $vInstituciones = array();
-		if($row)
-		{
-			$index = 0;
-        
-        foreach ($row as $registro) {
-            $oInstitucion = $this->generaInstitucion($registro);
-            $vInstituciones[$index] = $oInstitucion;
-            $index++;
+        if ($row) {
+            $index = 0;
+
+            foreach ($row as $registro) {
+                $oInstitucion = $this->generaInstitucion($registro);
+                $vInstituciones[$index] = $oInstitucion;
+                $index++;
+            }
         }
-		}
         return $vInstituciones;
     }
 
@@ -40,6 +39,7 @@ class DataInstituciones {
                         '" . $oInstitucion->getDireccion() . "','" . $oInstitucion->getDescripcion() . "',
                             '" . $oInstitucion->getTelefono() . "','" . $oInstitucion->getEmail() . "',
                                 '" . $oInstitucion->getWeb() . "')");
+        return mysql_insert_id();
     }
 
     public function modificaInstitucion(Institucion $oInstitucion) {
@@ -49,30 +49,27 @@ class DataInstituciones {
                 telefono_institucion='" . $oInstitucion->getTelefono() . "',email_institucion='" . $oInstitucion->getEmail() . "',web_institucion='" . $oInstitucion->getWeb() . "' WHERE id_institucion=" . $oInstitucion->getId());
     }
 
-public function bajaInstitucion($id){
-	        $bd = new Conexion();
-			$bd->query("DELETE FROM instituciones WHERE id_institucion=" . $id);
-	}
-	
-	
-public function getInstitucionesPag($from,$perPage){
-	 $bd = new Conexion();
-     $row = $bd->query("SELECT * FROM instituciones ORDER BY nombre_institucion DESC LIMIT $from,$perPage");
-     $vInstituciones = array();
-	 
-      if($row)
-		{
-			$index = 0;
-        
-        foreach ($row as $registro) {
-            $oInstitucion = $this->generaInstitucion($registro);
-            $vInstituciones[$index] = $oInstitucion;
-            $index++;
-        }
-		}
-        return $vInstituciones;
-	}
+    public function bajaInstitucion($id) {
+        $bd = new Conexion();
+        $bd->query("DELETE FROM instituciones WHERE id_institucion=" . $id);
+    }
 
+    public function getInstitucionesPag($from, $perPage) {
+        $bd = new Conexion();
+        $row = $bd->query("SELECT * FROM instituciones ORDER BY nombre_institucion DESC LIMIT $from,$perPage");
+        $vInstituciones = array();
+
+        if ($row) {
+            $index = 0;
+
+            foreach ($row as $registro) {
+                $oInstitucion = $this->generaInstitucion($registro);
+                $vInstituciones[$index] = $oInstitucion;
+                $index++;
+            }
+        }
+        return $vInstituciones;
+    }
 
     private function generaInstitucion($row) {
         $id = $row['id_institucion'];

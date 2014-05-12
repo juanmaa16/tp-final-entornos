@@ -1,22 +1,23 @@
 <?php
 require 'admin_check.php';
 @include_once '../init.php';
+include_once ROOT_DIR . '/entidades/usuario.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
-include '../disenio.php' ; 
+include '../disenio.php';
 
-$perPage=10;
+$perPage = 10;
 $total_results = 0;
-if (!isset($_GET['pag'])) {
+if (!isset($_GET['pag']) || ($_GET['pag']) == 1) {
     $page = 1;
+    $from = 0;
 } else {
     $page = $_GET['pag'];
+    $from = (($page * $perpage - $perpage));
 }
-$from = (($page * $perPage - $perPage));
-$servicios=new Servicios();
-$vInstituciones=$servicios->getInstitucionesPag($from,$perPage);
-$total_results = count($servicios->getInstituciones());
-
+$servicios = new Servicios();
+$vUsuarios = $servicios->getUsuariosPag($from, $perPage);
+$total_results = count($servicios->getUsuarios());
 ?>
 
 <!DOCTYPE html>
@@ -32,69 +33,68 @@ $total_results = count($servicios->getInstituciones());
     </head>
     <body>
         <div id="contenedor">
-          <?php cabecera(); ?>
+            <?php cabecera(); ?>
             <div id="principal">
                 <?php menuAdmin(); ?>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
-                   <!--  BOTON!!!! <a href="institucion_alta.php" ><input style="margin-left:150px"  type="button" value="Nueva" class="boton"/></a> -->
-                    <?php if(!empty ($vInstituciones)) {foreach($vInstituciones as $oInstitucion){?>
-                    <table id="usuarios" border="0">
-                        <tr>
-                        </tr>
-                        <tr>
-                            <td width="90%"><?php echo $oInstitucion->getNombre();?></td>
-                            <td><a data="Editar institución" href=""><img src="../images/edit-inst.png"/></a></td>
-                            <td><a data="Editar usuario" href="institucion_modifica.php?action=baja&id=<?php echo $oInstitucion->getId();?>"><img src="../images/edit.png"/></a></td>
-                            <td><a data="Eliminar usuario" href="institucion_abm.php?action=baja&id=<?php echo $oInstitucion->getId();?>"><img src="../images/delete.png"/></a></td>
-                        </tr>
-                        
-                        <?php }
-					}else{
-						echo "No hay instituciones";
-					}?>                        
+                    <?php
+                    if (!empty($vUsuarios)) {
+                        foreach ($vUsuarios as $oUsuario) {
+                            $oInstitucion = $servicios->getInstitucionById($oUsuario->getIdInstitucion());
+                            if (isset($oInstitucion)) {
+                                ?>
+                                <table id="usuarios" border="0">
+                                    <tr>
+                                    </tr>
+                                    <tr>
+                                        <td width="90%"><?php echo $oInstitucion->getNombre(); ?></td>
+                                        <td><a data="Editar institución" href="institucion_modifica.php?id=<?php echo $oInstitucion->getId(); ?>"><img src="../images/edit-inst.png"/></a></td>
+                                        <td><a data="Editar usuario" href="usuario_modifica.php?id=<?php echo $oUsuario->getId(); ?>"><img src="../images/edit.png"/></a></td>
+                                        <td><a data="Eliminar usuario" href="usuario_abm.php?action=baja&id=<?php echo $oUsuario->getId(); ?>"><img src="../images/delete.png"/></a></td>
+                                    </tr>
+
+                                    <?php
+                                }
+                            }
+                        } else {
+                            echo "No hay instituciones";
+                        }
+                        ?>                        
                     </table>
-                    
-                    <?php 
-$total_paginas = ceil($total_results/$perPage);	
-if ($total_paginas > 1)
-{
-	for($i = 1;$i <= $total_paginas; $i++)
-	{
-      $prev = ($page - 1);
-      echo '<a href="?pag=' . $prev . '">&lt;</a>';
-	}
-}elseif ($total_paginas == 1 || $page == 1) 
-{
-     echo '<span class="disabled_tnt_pagination"><<</span>';
-}
-	 for ($i = 1; $i <= $total_paginas; $i++) {
-     if ($page == $i) {
-                    echo '<a href="#"><b> ' . $i . ' </b></a>';
-                      } else {
-                             echo '<a href="?pag=' . $i . '"> ' . $i . ' </a>';
-                             }
-                     }
+                    <a href="usuario_alta.php" ><input type="button" value="Nueva" class="boton"/></a>
+                    <br/>
 
-             if ($page < $total_paginas) {
-                            $next = ($page + 1);
-                            echo '<a href="?pag=' . $next . '"> >></a>';
+                    <?php
+                    $total_paginas = ceil($total_results / $perPage);
+                    if ($total_paginas > 1) {
+                        for ($i = 1; $i <= $total_paginas; $i++) {
+                            $prev = ($page - 1);
+                            echo '<a href="?pag=' . $prev . '">&lt;</a>';
                         }
-                        if ($page == $total_paginas) {
-                            echo '<span class="disabled_tnt_pagination">>></span>';
+                    } elseif ($total_paginas == 1 || $page == 1) {
+                        echo '<span class="disabled_tnt_pagination"><<</span>';
+                    }
+                    for ($i = 1; $i <= $total_paginas; $i++) {
+                        if ($page == $i) {
+                            echo '<a href="#"><b> ' . $i . ' </b></a>';
+                        } else {
+                            echo '<a href="?pag=' . $i . '"> ' . $i . ' </a>';
                         }
-						
-						
-		 
+                    }
 
-                          
+                    if ($page < $total_paginas) {
+                        $next = ($page + 1);
+                        echo '<a href="?pag=' . $next . '"> >></a>';
+                    }
+                    if ($page == $total_paginas) {
+                        echo '<span class="disabled_tnt_pagination">>></span>';
+                    }
+                    ?>
 
-                       
-?>
-                    
                 </div>
             </div>
-              <?php pie(); ?>
+            <?php pie(); ?>
 
         </div>
     </body>

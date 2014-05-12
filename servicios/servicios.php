@@ -15,7 +15,8 @@ class Servicios {
 
     public function altaInstitucion(Institucion $oInstitucion) {
         $institucionesRepository = new DataInstituciones();
-        $institucionesRepository->altaInstitucion($oInstitucion);
+        $id = $institucionesRepository->altaInstitucion($oInstitucion);
+        return $id;
     }
 
     public function getInstitucionById($idInstitucion) {
@@ -27,15 +28,16 @@ class Servicios {
         $institucionesRepository = new DataInstituciones();
         $institucionesRepository->modificaInstitucion($oInstitucion);
     }
-	public function bajaInstitucion($id){
-		$institucionesRepository = new DataInstituciones();
-		$institucionesRepository->bajaInstitucion($id);
-	}
-	public function getInstitucionesPag($from,$perPage)
-	{
-		$institucionesRepository = new DataInstituciones();
-        return $institucionesRepository->getInstitucionesPag($from,$perPage);
-	}
+
+    public function bajaInstitucion($id) {
+        $institucionesRepository = new DataInstituciones();
+        $institucionesRepository->bajaInstitucion($id);
+    }
+
+    public function getInstitucionesPag($from, $perPage) {
+        $institucionesRepository = new DataInstituciones();
+        return $institucionesRepository->getInstitucionesPag($from, $perPage);
+    }
 
     public function getCarreras() {
         $carrerasRepository = new DataCarreras();
@@ -85,6 +87,21 @@ class Servicios {
     public function getUsuarioByNombreUsuario($nombreUsuario) {
         $usuariosRepository = new DataUsuarios();
         return $usuariosRepository->getUsuarioByNombreUsuario($nombreUsuario);
+    }
+
+    public function altaUsuario(Usuario $oUsuario) {
+        $usuariosRepository = new DataUsuarios();
+        $usuariosRepository->altaUsuario($oUsuario);
+    }
+
+    public function getUsuariosPag($from, $limit) {
+        $usuariosRepository = new DataUsuarios();
+        return $usuariosRepository->getUsuariosPag($from, $limit);
+    }
+
+    public function getUsuarios() {
+        $usuariosRepository = new DataUsuarios();
+        return $usuariosRepository->getUsuarios();
     }
 
 }
