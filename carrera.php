@@ -1,3 +1,14 @@
+<?php
+@include_once 'init.php';
+include_once ROOT_DIR . '/entidades/carrera.php';
+include_once ROOT_DIR . '/entidades/institucion.php';
+include_once ROOT_DIR . '/servicios/servicios.php';
+
+$idCarrera = $_GET['id'];
+$servicios = new Servicios();
+$oCarrera = $servicios->getCarreraById($idCarrera);
+$oInstitucion=$servicios->getInstitucionById($oCarrera->getIdInstitucion());
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,29 +40,25 @@
                 <div id="contenido">
                     <img id="logo-inst" src="http://placehold.it/90x90&text=logo"/>
                     <div id="datos-inst">
-                        <h1>CARRERA</h1>
-                        <h3>UTN</h3>
-                        </div>
-                        
-                        
-                      <div id="cuerpo"><h2>DESCRIPCION</h2>
-                      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Quisque ante felis, scelerisque sit amet urna ac, varius mollis nunc. 
-                            Vivamus ultrices sapien id suscipit facilisis. Integer eget ligula varius,
-                            congue ligula ut, convallis nibh. Vestibulum in augue vitae justo euismod feugiat
-                            tristique imperdiet purus. Lorem ipsum dolor sit met, consectetur adipiscing elit. 
-                            Suspendisse et augue auctor, laoreet ipsum non, scelerisque mauris. Vestibulum sollicitudin 
-                            justo id tellus venenatis hgconvallis. Ut a sollicitudin nulla, id ultricies nibh. </p>
-                    <h2> INCUMBENCIAS</h2>
-                     <p> -Lorem ipsum dolor sit amet, consectetur adipiscing elit.                            <br>
-                       -Quisque ante felis, scelerisque sit amet urna ac, varius mollis nunc. 
-                            <br>
-                       -Vivamus ultrices sapien id suscipit facilisis. Integer eget ligula varius.<br>
--congue ligula ut, convallis nibh. Vestibulum in augue vitae justo euismod<br>
--feugiat
-                      tristique imperdiet purus. Lorem ipsum dolor sit met, consectetur</p>
-                     <h2>PLAN DE ESTUDIO</h2>
-<a href="el_archivo.pdf"> Plan de estudio</a>                     
+                        <h1><?php echo $oCarrera->getNombre();?></h1>
+                        <h3><?php echo $oInstitucion->getNombre();?></h3>
+                    </div>
+
+
+                    <div id="cuerpo"><h2>DESCRIPCION</h2>
+                        <p> 
+                        <?php 
+                        echo $oCarrera->getDescripcion();
+                        ?>
+                        </p>
+                        <h2> INCUMBENCIAS</h2>
+                        <p>
+                        <?php
+                        echo $oCarrera->getIncumbencias();
+                        ?>
+                        </p>
+                        <h2>PLAN DE ESTUDIO</h2>
+                        <a href="<?php $oCarrera->getPlanEstudio();?>"> Plan de estudio</a>                     
                     </div>
                 </div>
                 <div id="publicidades">
