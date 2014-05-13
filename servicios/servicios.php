@@ -53,6 +53,11 @@ class Servicios {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarrerasByInstitucion($idInstitucion);
     }
+    
+    public function getCarrerasByAreaInteres($idAreaInteres) {
+        $carrerasRepository = new DataCarreras();
+        return $carrerasRepository->getCarrerasByAreaInteres($idAreaInteres);
+    }
 
     public function getCarrerasByInstitucionPag($from, $limit, $idInstitucion) {
         $carrerasRepository = new DataCarreras();

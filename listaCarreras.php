@@ -3,6 +3,7 @@
 include_once ROOT_DIR . '/entidades/carrera.php';
 include_once ROOT_DIR . '/entidades/institucion.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+include 'disenio.php';
 
 $perpage = 10;
 $total_results = 0;
@@ -16,7 +17,6 @@ if (!isset($_GET['pag']) || ($_GET['pag']) == 1) {
 $servicios = new Servicios();
 $vCarreras = $servicios->getCarrerasPag($from, $perpage);
 $total_results = count($servicios->getCarreras());
-
 ?>
 
 <!DOCTYPE html>
@@ -29,33 +29,18 @@ $total_results = count($servicios->getCarreras());
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="index.html"><img id="logo" src="images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <input type="text" placeholder="Buscar..."/>
-                    </form>
-                </div>
-            </div>
+            <?php cabecera(); ?>
             <div id="principal">
-                <div id="menu">
-                    <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
-                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
-                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
-                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="contacto.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
-                    </ul>
-                </div>
+                <?php menu(); ?>
                 <div id="contenido">
                     <h1>LISTADO DE CARRERAS</h1>
                     <hr>
                     <ul id="lista-carr">
                         <?php
-                        foreach($vCarreras as $oCarrera){
-                            $oInstitucion=$servicios->getInstitucionById($oCarrera->getIdInstitucion());
+                        foreach ($vCarreras as $oCarrera) {
+                            $oInstitucion = $servicios->getInstitucionById($oCarrera->getIdInstitucion());
                             //Falta hacer lo del logo
-                            echo '<li><a href="carrera.php?id='.$oCarrera->getId().'"> <img id="logo-list" src="http://placehold.it/90x90&text=logo"/>'.$oCarrera->getNombre().'</a></li>';
+                            echo '<li><a href="carrera.php?id=' . $oCarrera->getId() . '"> <img id="logo-list" src="http://placehold.it/90x90&text=logo"/>' . $oCarrera->getNombre() . ' - '.$oInstitucion->getNombre().'</a></li>';
                         }
                         ?>
                     </ul>
@@ -73,7 +58,7 @@ $total_results = count($servicios->getCarreras());
 
                         for ($i = 1; $i <= $total_pages; $i++) {
                             if ($page == $i) {
-                                echo '<a href="#"><b> ' . $i . ' </b></a>';
+                                echo '<a href="#" style="color: #004BB3;"><b> ' . $i . ' </b></a>';
                             } else {
                                 echo '<a href="?pag=' . $i . '"> ' . $i . ' </a>';
                             }
@@ -95,8 +80,7 @@ $total_results = count($servicios->getCarreras());
                 </div>
 
             </div>
-            <div id="footer">
-            </div>
+            <?php pie(); ?>
         </div>
     </body>
 </html>

@@ -1,3 +1,4 @@
+<?php include 'disenio.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,24 +15,9 @@
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="index.html"><img id="logo" src="images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <input type="text" placeholder="Buscar..."/>
-                    </form>
-                </div>
-            </div>
+            <?php cabecera(); ?>
             <div id="principal">
-                <div id="menu">
-                    <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
-                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
-                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
-                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="contacto.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
-                    </ul>
-                </div>
+                <?php menu(); ?>
                 <div id="contenido-index">
                     <img src="images/ima_principal.png"/>
                     <div id="universidades-adheridas">
@@ -57,8 +43,7 @@
                 </div>
 
             </div>
-            <div id="footer">
-            </div>
+            <?php pie(); ?>
         </div>
 
 

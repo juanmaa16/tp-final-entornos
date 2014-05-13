@@ -13,6 +13,6 @@ $headers = 'From: ' . $nombreApellido . ' <' . $email . '> ' . "\r\n" . 'Reply-T
 $envioMail = mail($to, $subject, $consulta, $headers);
 
 if ($envioMail) {
-    header('Location:contacto-enviado.html');
+    header('Location:contacto-enviado.php');
 }
 ?>

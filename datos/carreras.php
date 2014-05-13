@@ -44,15 +44,33 @@ class DataCarreras {
         }
         return $vCarreras;
     }
- public function getCarrerasByInstitucion($idInstitucion) {
+
+    public function getCarrerasByInstitucion($idInstitucion) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM carreras WHERE id_institucion=$idInstitucion");
         $index = 0;
         $vCarreras = array();
-        foreach ($row as $registro) {
-            $oCarrera = $this->generaCarrera($registro);
-            $vCarreras[$index] = $oCarrera;
-            $index++;
+        if ($row) {
+            foreach ($row as $registro) {
+                $oCarrera = $this->generaCarrera($registro);
+                $vCarreras[$index] = $oCarrera;
+                $index++;
+            }
+        }
+        return $vCarreras;
+    }
+
+    public function getCarrerasByAreaInteres($idAreaInteres) {
+        $bd = new Conexion();
+        $row = $bd->query("SELECT * FROM carreras WHERE id_area_interes=$idAreaInteres");
+        $index = 0;
+        $vCarreras = array();
+        if ($row) {
+            foreach ($row as $registro) {
+                $oCarrera = $this->generaCarrera($registro);
+                $vCarreras[$index] = $oCarrera;
+                $index++;
+            }
         }
         return $vCarreras;
     }
@@ -69,6 +87,7 @@ class DataCarreras {
         }
         return $vCarreras;
     }
+
     public function getCarreraById($idCarrera) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM carreras WHERE id_carrera=" . $idCarrera);
