@@ -26,7 +26,7 @@ $oInstitucion=$servicios->getInstitucionById($idInstitucion);
         <div id="contenedor">
              <?php cabecera(); ?>
             <div id="principal">
-                <?php menu(); ?>
+                  <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>MODIFICAR INSTITUCIÓN</h1>

@@ -16,20 +16,22 @@ include '../disenio.php';
         <div id="contenedor">
             <?php cabecera(); ?>
             <div id="principal">
-                <?php menu(); ?>
+                <?php menuInstitucion(); ?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>MODIFICAR CONTRASEÑA</h1>
-
-                        <form method="POST" action="">
+                        <?php
+                        if (isset($_GET['msg'])) {
+                            echo '<h2>Las contraseñas ingresadas no coinciden</h2>';
+                        }
+                        ?>
+                        <form method="POST" action="usuario_cambio_password.php">
                             <label>Contraseña</label><br/>
                             <input name="password" type="password" class="textbox" style="width:50%" required/><br/>
                             <label>Repetir Contraseña</label><br/>
                             <input name="password2" type="password" class="textbox" style="width:50%" required/><br/><br>
-                            <input type="submit" value="Guardar" class="boton"/><a href="institucion_panel_modifica.php" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
+                             <input type="submit" value="Guardar" class="boton"/><a href="institucion_panel_modifica.php" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
                         </form>
-
-
                     </div>
                 </div>
             </div>

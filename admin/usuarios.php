@@ -35,7 +35,7 @@ $total_results = count($servicios->getUsuarios());
         <div id="contenedor">
             <?php cabecera(); ?>
             <div id="principal">
-                <?php menu(); ?>
+                 <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <h1>USUARIOS</h1>
                     <?php

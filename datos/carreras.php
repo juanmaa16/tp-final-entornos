@@ -80,10 +80,13 @@ class DataCarreras {
         $row = $bd->query("SELECT * FROM carreras WHERE id_institucion=$idInstitucion LIMIT $from, $limit");
         $index = 0;
         $vCarreras = array();
+        if($row){
         foreach ($row as $registro) {
             $oCarrera = $this->generaCarrera($registro);
             $vCarreras[$index] = $oCarrera;
             $index++;
+        }
+        
         }
         return $vCarreras;
     }

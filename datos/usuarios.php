@@ -47,6 +47,11 @@ class DataUsuarios {
                 WHERE id_usuario=" . $oUsuario->getId());
     }
 
+    public function modificaPassword($password, $idUsuario) {
+        $bd = new Conexion();
+        $bd->query("UPDATE usuarios SET clave_usuario='" . $password . "' WHERE id_usuario=" . $idUsuario);
+    }
+
     public function getUsuarioByNombreUsuario($nombreUsuario) {
         $bd = new Conexion();
         $row = $bd->query("SELECT * FROM usuarios WHERE nombre_usuario='$nombreUsuario'");

@@ -4,6 +4,7 @@ require 'admin_check.php';
 include_once ROOT_DIR . '/entidades/carrera.php';
 include_once ROOT_DIR . '/entidades/areaInteres.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+include '../disenio.php';
 
 $idCarrera = $_GET['id'];
 $servicios = new Servicios();
@@ -24,24 +25,9 @@ $vAreasInteres = $servicios->getAreasInteres();
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+              <?php cabecera();?>
             <div id="principal">
-                <div id="menu">
-                    <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="../images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
-                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
-                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
-                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="index.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
-                    </ul>
-                </div>
+                  <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>CARGA CARRERA</h1>
@@ -50,10 +36,9 @@ $vAreasInteres = $servicios->getAreasInteres();
 
                             <input name="nombre" type="text" class="textbox" style="width:50%" value="<?php echo $oCarrera->getNombre(); ?>" required/><br/>
                             <label>Descripción</label><br/>
-                            <textarea name="descripcion" class="textbox" style="width:50%;height: 150px;" value="<?php echo $oCarrera->getDescripcion(); ?>"></textarea><br/>
+                            <textarea name="descripcion" class="textbox" style="width:50%;height: 150px;"><?php echo $oCarrera->getDescripcion(); ?></textarea><br/>
                             <label>Incumbencias</label><br/>
-                            <textarea name="incumbencias" class="textbox" style="width:50%;height: 150px;">
-                                <?php echo $oCarrera->getIncumbencias(); ?>
+                            <textarea name="incumbencias" class="textbox" style="width:50%;height: 150px;"><?php echo $oCarrera->getIncumbencias(); ?>
                             </textarea><br/>
                             <label>Área de interes</label><br/>
                             <select name="areaInteres" class="textbox" style="width:50%;height: 30px;"/>
@@ -69,17 +54,16 @@ $vAreasInteres = $servicios->getAreasInteres();
                             <label>Plan de estudio</label><br/>
                             <input name="planEstudio" type="file" class="textbox" style="width:50%;height: 25px;" 
                                    value="<?php echo $oCarrera->getPlanEstudio(); ?>"/><br/><br/>
-                            <input type="hidden" value="1" name="idInstitucion">
+                            <input type="hidden" value="<?php echo $_SESSION['id_institucion']?>" name="idInstitucion">
                             <input type="hidden" name="id" value="<?php echo $idCarrera; ?>"/>
-                            <input type="submit" value="Guardar" class="boton"/> <a href="institucion_alta.html" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
+                            <input type="submit" value="Guardar" class="boton"/> <a href="institucion_alta.php" ><input style="margin-left:150px"  type="button" value="Volver" class="boton"/></a>
                         </form>
 
 
                     </div>
                 </div>
             </div>
-            <div id="footer">
-            </div>
+            <?php pie();?>
         </div>
     </body>
 </html>

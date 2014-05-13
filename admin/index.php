@@ -8,8 +8,14 @@ include_once ROOT_DIR . '/entidades/usuario.php';
 
 $estadoLogin = $_SESSION['estadoLogin'];
 if (isset($estadoLogin) && $estadoLogin) {
-    header("Location: admin_panel.php");
-    return;
+    $idInstitucion = $_SESSION['id_institucion'];
+    if (!isset($idInstitucion)) {
+        header("Location: usuarios.php");
+        exit;
+    } else {
+        header("Location: admin_panel.php");
+        return;
+    }
 }
 
 $usuario = $_POST['usuario'];
@@ -23,7 +29,14 @@ if (isset($oUsuario) && $oUsuario->getUsuario() == $usuario && $oUsuario->getPas
     $_SESSION['id_usuario'] = $oUsuario->getId();
     $_SESSION['nombre_usuario'] = $oUsuario->getUsuario();
     $_SESSION['id_institucion'] = $oUsuario->getIdInstitucion();
-    header("Location: admin_panel.php");
+    $idInstitucion = $_SESSION['id_institucion'];
+    if (!isset($idInstitucion)) {
+        header("Location: usuarios.php");
+        exit;
+    } else {
+        header("Location: admin_panel.php");
+        return;
+    }
 } elseif ($usuario == NULL || $password == NULL) {
     header("Location: admin_login.php");
 } else {

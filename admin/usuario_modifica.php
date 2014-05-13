@@ -24,7 +24,7 @@ $oUsuario = $servicios->getUsuarioByNombreUsuario($nombreUsuario);
         <div id="contenedor">
             <?php cabecera(); ?>
             <div id="principal">
-                <?php menu(); ?>
+                 <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>EDITAR USUARIO</h1>

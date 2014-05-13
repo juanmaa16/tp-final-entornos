@@ -53,7 +53,7 @@ class Servicios {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarrerasByInstitucion($idInstitucion);
     }
-    
+
     public function getCarrerasByAreaInteres($idAreaInteres) {
         $carrerasRepository = new DataCarreras();
         return $carrerasRepository->getCarrerasByAreaInteres($idAreaInteres);
@@ -112,6 +112,11 @@ class Servicios {
     public function modificaUsuario(Usuario $oUsuario) {
         $usuariosRepository = new DataUsuarios();
         $usuariosRepository->modificaUsuario($oUsuario);
+    }
+
+    public function modificaPassword($password, $idUsuario) {
+        $usuariosRepository = new DataUsuarios();
+        $usuariosRepository->modificaPassword($password, $idUsuario);
     }
 
 }

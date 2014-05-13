@@ -16,7 +16,7 @@ include '../disenio.php' ;
         <div id="contenedor">
              <?php cabecera(); ?>
             <div id="principal">
-                <?php menu(); ?>
+                  <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <div id="cuerpo">
                         <h1>PANEL DE CARGAS</h1>

@@ -3,6 +3,7 @@ require 'admin_check.php';
 @include_once '../init.php';
 include_once ROOT_DIR . '/entidades/carrera.php';
 include_once ROOT_DIR . '/servicios/servicios.php';
+include '../disenio.php';
 
 $perpage = 10;
 $total_results = 0;
@@ -15,8 +16,12 @@ if (!isset($_GET['pag']) || ($_GET['pag']) == 1) {
 }
 $servicios = new Servicios();
 //TODO: Agregar validacion si es administrador o institucion y llamar a sus metodos para listar
+if(isset($_SESSION['id_institucion'])){
+$vCarreras = $servicios->getCarrerasByInstitucionPag($from, $perpage,$_SESSION['id_institucion']);
+$total_results = count($servicios->getCarrerasByInstitucion($_SESSION['id_institucion']));
+}else{
 $vCarreras = $servicios->getCarrerasPag($from, $perpage);
-$total_results = count($servicios->getCarreras());
+$total_results = count($servicios->getCarreras());}
 ?>
 
 <!DOCTYPE html>
@@ -32,26 +37,12 @@ $total_results = count($servicios->getCarreras());
     </head>
     <body>
         <div id="contenedor">
-            <div id="header">
-                <a href="../index.html"><img id="logo" src="../images/logo.png"/></a>
-                <div id="buscador">
-                    <form action="" method="get">
-                        <!--<input type="text" placeholder="Buscar..."/>-->
-                    </form>
-                </div>
-            </div>
+              <?php cabecera();?>
             <div id="principal">
-                <div id="menu">
-                    <ul id="css3menu1" class="topmenu">
-                        <li class="topfirst"><a href="index.html" style="width:179px;height:28px;line-height:28px;"><img src="../images/home-home-icone-9323-128-as.png" alt=""/>&nbsp</a></li>
-                        <li class="topmenu"><a href="carreras.php" style="width:179px;height:28px;line-height:28px;"><span>CARRERAS</span></a></li>
-                        <li class="topmenu"><a href="instituciones.php" style="width:178px;height:28px;line-height:28px;">INSTITUCIONES</a></li>
-                        <li class="topmenu"><a href="areas_int.php" style="width:178px;height:28px;line-height:28px;">AREAS DE INTERES</a></li>
-                        <li class="toplast"><a href="index.html" style="width:179px;height:28px;line-height:28px;">CONTACTO</a></li>
-                    </ul>
-                </div>
+                 <?php menuInstitucion();?>
                 <div id="contenido-admin">
                     <h1>CARRERAS</h1>
+                    <?php if(!empty($vCarreras)){?>
                     <table id="carreras" border="0">
 
                         <?php
@@ -64,6 +55,7 @@ $total_results = count($servicios->getCarreras());
                         }
                         ?>
                     </table>
+                    <?php }?>
                     <a href="carrera_alta.php">Nueva carrera</a>
 
                     <div id="tnt_pagination" style="clear: both;text-align: center;margin-bottom: 20px;">
@@ -98,8 +90,7 @@ $total_results = count($servicios->getCarreras());
 
                 </div>
             </div>
-            <div id="footer">
-            </div>
+            <?php pie();?>
         </div>
     </body>
 </html>

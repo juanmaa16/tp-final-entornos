@@ -34,6 +34,14 @@ if ($action == "alta") {
     $oInstitucion = new Institucion($id, $nombre, $logo, $direccion, $descripcion, $telefono, $email, $web);
 
     $servicios->modificaInstitucion($oInstitucion);
+    $idInstitucion = $_SESSION['id_institucion'];
+    if (!isset($idInstitucion)) {
+        header("Location: usuarios.php");
+        exit;
+    } else {
+        header("Location: admin_panel.php");
+        return;
+    }
 } elseif ($action == "baja") {
     $id = $_GET['id'];
 	$servicios->bajaInstitucion($id);
