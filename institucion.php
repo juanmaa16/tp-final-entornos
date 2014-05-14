@@ -29,11 +29,13 @@ $vCarreras = $servicios->getCarrerasByInstitucion($idInstitucion);
                         <p> 
                             <?php echo $oInstitucion->getDescripcion(); ?>
                         </p>
-
-                        <!--Mapa-->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.868502947651!2d-60.64371600000001!3d-32.954481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUTN+-+FACULTAD+REGIONAL+ROSARIO!5e0!3m2!1ses-419!2sar!4v1396537020835" width="615" height="200" frameborder="0" style="border:0"></iframe>
-                        <!--Fin de mapa--> 
+                        <?php if ($oInstitucion->getDireccion()) {
+                            ?>
+                            <!--Mapa-->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3347.8814653500094!2d-60.64475619999999!3d-32.954138799999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11ed89b5ff%3A0x3529f2b1ce2ebc15!2sE.+<?php echo $oInstitucion->getDireccion(); ?>!5e0!3m2!1ses-419!2sar!4v1400029251362" width="615" height="200" frameborder="0" style="border:0"></iframe>
+                            <!--Fin de mapa--> 
                         <?php
+                        }
                         if (!empty($vCarreras)) {
                             ?>
                             <h2>CARRERAS</h2>
@@ -52,7 +54,7 @@ $vCarreras = $servicios->getCarrerasByInstitucion($idInstitucion);
                             ?>
                             <h2>TELEFONO</h2>
                             <p> 
-                                <?php echo $oInstitucion->getTelefono(); ?>
+                            <?php echo $oInstitucion->getTelefono(); ?>
                             </p>
                         <?php } ?>
                         <?php
@@ -60,7 +62,7 @@ $vCarreras = $servicios->getCarrerasByInstitucion($idInstitucion);
                             ?>
                             <h2>EMAIL</h2>
                             <p> 
-                                <?php echo $oInstitucion->getEmail(); ?>
+                            <?php echo $oInstitucion->getEmail(); ?>
                             </p>
                         <?php } ?>
                         <?php
@@ -69,10 +71,10 @@ $vCarreras = $servicios->getCarrerasByInstitucion($idInstitucion);
                             <h2>WEB</h2>
                             <p> 
                                 <a href="<?php echo $oInstitucion->getWeb(); ?>">
-                                    <?php echo $oInstitucion->getWeb(); ?>
+    <?php echo $oInstitucion->getWeb(); ?>
                                 </a>
                             </p>
-                        <?php } ?>
+<?php } ?>
 
                     </div>
                 </div>
@@ -81,7 +83,7 @@ $vCarreras = $servicios->getCarrerasByInstitucion($idInstitucion);
                 </div>
 
             </div>
-            <?php pie(); ?>
+<?php pie(); ?>
         </div>
     </body>
 </html>
